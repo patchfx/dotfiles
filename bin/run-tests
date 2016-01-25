@@ -1,0 +1,16 @@
+#!/bin/bash
+
+clear
+
+if [ ! -p .test-commands ]; then
+  mkfifo .test-commands
+fi
+
+while true; do
+  COMMAND=$(cat .test-commands)
+  clear
+  echo "Executing: $COMMAND"
+  echo
+  sh -c "$COMMAND"
+  echo
+done

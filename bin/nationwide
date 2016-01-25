@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+require 'csv'
+require 'date'
+
+class Nationwide
+  def self.load(file_path)
+    data = CSV.read(file_path)
+    data[5..-1].map { |row| new(*row) }
+  end
+
+  def self.convert(file_path)
+    data = self.load(file_path)
+    CSV.generate do |csv|
+      data.each { |row| csv << row.to_a }
+    end
+  end
+
+  def initialize(date, transaction_type, description, debit, credit, balance)
+    @date = Date.parse(date).strftime("%d/%m/%Y")
+    description = nil if description == ""
+    @description = [transaction_type, description].compact.join(" - ")
+    @value = clean_value(credit) - clean_value(debit)
+  end
+
+  def to_a
+    [@date, @value, @description]
+  end
+
+  private
+  def clean_value(value)
+    return 0.0 if value.nil?
+    s = value.chars.to_a[1..-1].join
+    s.to_f
+  end
+end
+
+if __FILE__ == $PROGRAM_NAME
+  puts Nationwide.convert ARGV[0]
+end

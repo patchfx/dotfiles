@@ -1,0 +1,6 @@
+alias rake='noglob rake'
+alias be='bundle exec'
+alias morning-pages='morning-pages -d ~/Dropbox/words'
+alias rubify='pbpaste | pygmentize -l ruby -f rtf -O style=monokai | pbcopy'
+alias to_gherkin='pbpaste | pygmentize -l gherkin -f rtf -O style=monokai | pbcopy'
+#alias git='hub'
