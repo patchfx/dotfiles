@@ -1,14 +1,14 @@
 # ADD LOCAL CONFIGURATION HERE
 [user]
   name = Richard Patching
-	email = richard@justaddpixels.com
+  email = richard@justaddpixels.com
 [diff]
 [color]
   diff = auto
   status = auto
   branch = auto
 [core]
-	excludesfile = /Users/richard/.gitignore_global
+  excludesfile = /Users/richard/.gitignore_global
   editor = vim
 [alias]
   praise = blame
@@ -49,9 +49,9 @@
 [help]
   autocorrect = 1
 [pull]
-	rebase = true
+  rebase = true
 [push]
-	default = upstream
+  default = upstream
 
 [branch "master"]
   mergeoptions = --no-commit --no-ff
