@@ -255,7 +255,7 @@ function! RunTests(filename)
         if filereadable("script/test")
             let run_test = "script/test " . a:filename
         else
-            let run_test = "rspec --color " . a:filename
+            let run_test = "bundle exec rspec --color " . a:filename
         end
     else
         if filereadable("script/test")
